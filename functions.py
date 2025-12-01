@@ -28,3 +28,28 @@ def summarize_country(all_data):
 #   -Calculate average population growth
 #   -Summarize country data
 #   -Sustainability risk index
+
+def normalize_country_name(country):
+    country = country.strip().lower()
+    
+def get_country():
+    country = input("Enter the country you want to analyze: ")
+    for c in country:
+        if c == " " or c == "." or c == "-":
+
+            
+            
+    fixed_country = country[0].upper() + country[1:].lower()
+    if fixed_country 
+    return fixed_country
+
+def average_population_growth(population_data,year):
+    country = input("Enter the country you want to analyze: ")
+    fixed_country = country[0].upper() + country[1:].lower()
+    for row in population_data:
+        if row[0] == fixed_country:
+            start_pop = row[21]
+            end_pop = row[1]
+            avg_growth = (end_pop - start_pop)/20
+            return avg_growth
+        if 
