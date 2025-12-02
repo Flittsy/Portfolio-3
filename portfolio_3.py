@@ -1,8 +1,6 @@
 
 #               ********   NOTES    *************
-# also note, to research: in zylabs outline, talks about an "overwrite" feature
-#      it is a flag for the write feature
-# "Your application must return useful information"
+#docstrings, commenting, check if merge compatible
 
 
 
@@ -43,9 +41,43 @@ def read_csv(filename, include_headers):
         del data[0]
 
     #to test print::: 
-    for row in data: print(row)
+    #for row in data: print(row)
     return data
 #***********end of read_csv function
+
+
+
+# ************WRITE_CSV************************************
+#     slap write_csv into one of the fxns to log "search history"
+#     if theres a function where only SOME sorted data is graphed, log that portion of the list/array
+
+#just need to take away the , if ends w commma
+def write_csv(filename, data, overwrite):
+    appending = "a"
+    if overwrite:
+        appending = "w"
+
+    file = open(filename, appending)
+
+    for i in range(len(data)):
+        line = data[i]
+        line_csv = ""
+        for element in range(len(line)):
+            if element == 0:
+                line_csv += str(line[element])
+            else:
+                line_csv += ","
+                line_csv += str(line[element])
+        if line_csv[-2] == ",":
+            #prob best to just do list slicing
+            line_csv = line_csv[:-2]
+        file.write(f"{line_csv}\n")
+
+    file.close()
+
+#**********************end write_csv function**************
+
+
 
 
 
@@ -53,5 +85,7 @@ def read_csv(filename, include_headers):
 
 
 #tester: not PEP 8 naming, but fuck that
-twoD_list = read_csv( "Threatened_Species (1).csv", True )
+twoD_list = read_csv( "Threatened_Species (1).csv", False )
 #print(twoD_list)
+
+tester_var = write_csv( "Elle_Country_Tester.csv", twoD_list, True)

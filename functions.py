@@ -51,5 +51,6 @@ def average_population_growth(population_data,year):
             start_pop = row[21]
             end_pop = row[1]
             avg_growth = (end_pop - start_pop)/20
+            #so avg linear growth then (secant line)?
             return avg_growth
         if 
